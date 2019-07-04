@@ -50,6 +50,7 @@ using ::__strcmp__;  // avoid error: E2316 '__strcmp__' is not a member of 'std'
 
 #include "ip/UdpSocket.h"
 #include "osc/OscPacketListener.h"
+#include "TestConfig.h"
 
 
 namespace osc{
@@ -255,19 +256,19 @@ void RunReceiveTest( int port )
 
 } // namespace osc
 
-#ifndef NO_OSC_TEST_MAIN
+#if OSC_RECEIVE_TEST
 
 int main(int argc, char* argv[])
 {
-	if( argc >= 2 && std::strcmp( argv[1], "-h" ) == 0 ){
+    if( argc >= 2 && std::strcmp( argv[1], "-h" ) == 0 ){
         std::cout << "usage: OscReceiveTest [port]\n";
         return 0;
     }
 
-	int port = 7000;
+    int port = 7000;
 
-	if( argc >= 2 )
-		port = std::atoi( argv[1] );
+    if( argc >= 2 )
+        port = std::atoi( argv[1] );
 
     osc::RunReceiveTest( port );
 

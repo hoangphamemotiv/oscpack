@@ -43,6 +43,7 @@
 #include "osc/OscReceivedElements.h"
 #include "osc/OscPrintReceivedElements.h"
 #include "osc/OscOutboundPacketStream.h"
+#include "TestConfig.h"
 
 #if defined(__BORLANDC__) // workaround for BCB4 release build intrinsics bug
 namespace std {
@@ -447,7 +448,7 @@ void RunUnitTests()
 } // namespace osc
 
 
-#ifndef NO_OSC_TEST_MAIN
+#if OSC_UNIT_TEST
 
 int main(int argc, char* argv[])
 {
